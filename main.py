@@ -5,7 +5,7 @@ import os
 TOKEN = os.environ['TOKEN']
 # Create a bot object
 bot = Bot(token=TOKEN)
-# Print bot info
-x=bot.getMe()
-print(x.id)
-print(x.first_name)
+
+chat_id =5575549228
+# Send message
+bot.sendMessage(chat_id=chat_id,text='Salom')
