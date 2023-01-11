@@ -1,5 +1,5 @@
 from telegram.ext import Updater,CommandHandler,CallbackContext,MessageHandler,Filters
-from telegram import Update
+from telegram import Update,ReplyKeyboardMarkup
 import os
 
 # get token from env
@@ -32,7 +32,13 @@ def help(update: Update, context: CallbackContext):
     chat_id = update.message.chat.id
 
     bot = context.bot
-    bot.sendMessage(chat_id,'Qanday yordam kerak!!!')
+    markup = ReplyKeyboardMarkup(
+        [['Help 🇺🇸','Yordam 🇺🇿']]
+        )
+    bot.sendMessage(
+        chat_id=chat_id,
+        text='Qanday yordam kerak!!!',
+        reply_markup=markup)
 updater = Updater(token=TOKEN)
 
 updater.dispatcher.add_handler(CommandHandler('start',start))
