@@ -9,7 +9,9 @@ def start(update: Update, context: CallbackContext):
     print('Start command')
 
 def echo(update: Update, context: CallbackContext):
-    print('Echo')
+    # Get text from update
+    text = update.message.text
+    print(text)
 
 updater = Updater(token=TOKEN)
 
