@@ -13,5 +13,7 @@ bot.sendMessage(chat_id=chat_id,text='Salom')
 # Get updates from bot
 
 updates = bot.getUpdates()
-photos = updates[4].message.photo
-print(photos[0])
+photos = updates[5].message.photo
+file_id=photos[0].file_id
+print(file_id)
+bot.sendPhoto(chat_id=chat_id,photo=file_id)
