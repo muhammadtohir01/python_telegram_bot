@@ -11,7 +11,11 @@ def start(update: Update, context: CallbackContext):
 def echo(update: Update, context: CallbackContext):
     # Get text from update
     text = update.message.text
+    chat_id = update.message.chat.id
     print(text)
+    # Send message to Bot
+    bot = context.bot
+    bot.sendMessage(chat_id,text)
 
 updater = Updater(token=TOKEN)
 
