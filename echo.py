@@ -6,7 +6,10 @@ import os
 TOKEN = os.environ['TOKEN']
 
 def start(update: Update, context: CallbackContext):
-    print('Start command')
+    chat_id = update.message.chat.id
+
+    bot = context.bot
+    bot.sendMessage(chat_id,'Assalom alaykum xush kelibsiz botimizga 👍')
 
 def echo(update: Update, context: CallbackContext):
     # Get text from update
@@ -23,10 +26,17 @@ def hi(update: Update, context: CallbackContext):
 
     bot = context.bot
     bot.sendMessage(chat_id,'Salom')
-  
+
+def help(update: Update, context: CallbackContext):
+    print('hi')
+    chat_id = update.message.chat.id
+
+    bot = context.bot
+    bot.sendMessage(chat_id,'Qanday yordam kerak!!!')
 updater = Updater(token=TOKEN)
 
 updater.dispatcher.add_handler(CommandHandler('start',start))
+updater.dispatcher.add_handler(CommandHandler('help',help))
 updater.dispatcher.add_handler(MessageHandler(Filters.text('hi'),hi))
 updater.dispatcher.add_handler(MessageHandler(Filters.text,echo))
 
